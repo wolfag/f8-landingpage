@@ -6,7 +6,10 @@
 * {
   box-sizing: border-box;
 }
-
+html,
+body {
+  scroll-behavior: smooth;
+}
 html {
   font-size: 62.5%;
 }
@@ -55,15 +58,17 @@ a {
 }
 
 /* Header */
-.header {
+.fixed-header {
   background: #e6f0ff;
-  height: 100vh;
-  position: relative;
+  padding-top: 26px;
+  position: sticky;
+  top: -26px;
+  z-index: 1;
 }
 .navbar {
   display: flex;
   align-items: center;
-  padding-top: 38px;
+  padding: 12px 0;
 }
 .navbar ul {
   display: flex;
@@ -92,27 +97,32 @@ a {
   border-radius: 8px;
 }
 
-.hero {
-  margin-top: 130px;
+.hero-wrap {
+  background: #e6f0ff;
+  height: calc(100vh - 90px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.hero .info {
+.hero-wrap .info {
   width: 51%;
 }
-.hero .sub-title {
+.hero-wrap .sub-title {
   color: #687690;
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   line-height: 1.5;
 }
-.hero .title {
+.hero-wrap .title {
   color: #000336;
   font-size: 6.2rem;
   font-weight: 700;
   line-height: 1.19;
   margin-top: 8px;
 }
-.hero .desc {
+.hero-wrap .desc {
   color: #5a6473;
   font-size: 1.8rem;
   font-weight: 400;
@@ -131,7 +141,7 @@ a {
 
 /* Clients */
 .clients {
-  margin-top: 79px;
+  margin-top: 70px;
   padding: 43px 0 41px;
 }
 .clients .row {
@@ -157,7 +167,18 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-
+.clients .images a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 42px;
+  height: 90px;
+  transition: 500ms;
+}
+.clients .images a:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
 /* Guide */
 .guide {
   margin-top: 40px;
@@ -529,10 +550,12 @@ a {
   width: 28px;
   height: 28px;
   padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  color: unset;
 }
 .footer .list .social .link:hover {
-  border-radius: 3px;
-  background: #faf8f8;
+  background: #ebebeb;
 }
 .footer .copyright {
   color: #c2c2c2;
